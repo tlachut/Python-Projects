@@ -1,6 +1,7 @@
 # Symulacja losowania totolotka
 
 import random
+import datetime
 
 # Losowanie liczb komputera
 
@@ -37,8 +38,6 @@ trafioneLiczby = []
 for i in range(6):
     if liczbyUzytkownika[i] in wylosowaneLiczby:
         trafioneLiczby.append(liczbyUzytkownika[i])
-    else:
-        print("nie trafiono")
 
 # Wypisanie liczb w konsoli
 
@@ -49,3 +48,11 @@ print("Liczby wylosowane przez program to: ")
 print(wylosowaneLiczby)
 print(f"Trafiono {len(trafioneLiczby)} liczb(ę/y): ")
 print(trafioneLiczby)
+
+# Dodanie dzisiejszej daty oraz licz do pliku
+
+f = open("totolotek.txt", "a")
+f.write(str(datetime.datetime.now()) + "\n")
+f.write("Podane liczby: " + str(liczbyUzytkownika) + "\n")
+f.write("Wylosowane liczby: " + str(wylosowaneLiczby) + "\n")
+f.write("Trafione liczby: " + str(trafioneLiczby) + "\n\n")
