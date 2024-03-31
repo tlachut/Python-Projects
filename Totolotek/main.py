@@ -39,3 +39,13 @@ for i in range(6):
         trafioneLiczby.append(liczbyUzytkownika[i])
     else:
         print("nie trafiono")
+
+# Wypisanie liczb w konsoli
+
+print("|=====================================================|")
+print("Liczby wprowadzone przez użytkownika to: ")
+print(liczbyUzytkownika)
+print("Liczby wylosowane przez program to: ")
+print(wylosowaneLiczby)
+print(f"Trafiono {len(trafioneLiczby)} liczb(ę/y): ")
+print(trafioneLiczby)
