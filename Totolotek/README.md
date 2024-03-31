@@ -1,6 +1,6 @@
 # Symulacja losowania totolotka
 
-### Instrukcja
+### Instrukcja:
 
 1) Program losuje 6 unikalnych liczb.
 2) Użytkownik wprowadza 6 swoich liczb w konsoli.
