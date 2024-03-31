@@ -1,7 +1,6 @@
 # Symulacja losowania totolotka
 
 import random
-import math
 
 # Losowanie liczb komputera
 
@@ -30,3 +29,13 @@ def sprawdzPoprawnoscUzytkownik():
 
 for i in range(6):
     sprawdzPoprawnoscUzytkownik()
+
+# Trafione liczby
+
+trafioneLiczby = []
+
+for i in range(6):
+    if liczbyUzytkownika[i] in wylosowaneLiczby:
+        trafioneLiczby.append(liczbyUzytkownika[i])
+    else:
+        print("nie trafiono")
