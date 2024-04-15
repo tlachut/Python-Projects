@@ -1,4 +1,5 @@
 # Wisielec
+import random
 
 # Zapisywanie haseł do pliku
 plik_hasla = open("hasla.txt", "w")
@@ -20,4 +21,17 @@ hasla = []
 for linia in plik_hasla:
     hasla.append(linia.strip())  # Usuwanie znaków nowej lini
 plik_hasla.close()
-print(hasla)
+
+
+# Losowanie hasła
+def losuj_haslo():
+    wylosowane_haslo = hasla[random.randint(0, len(hasla) - 1)]
+    znaki_w_hasle = []
+    for i in wylosowane_haslo:
+        znaki_w_hasle.append(i)
+    znaki_na_podlogi = []
+    for i in znaki_w_hasle:
+        if (i.isalpha()):  # Sprawdzanie, czy znak jest literą
+            znaki_na_podlogi.append("_")
+        else:
+            znaki_na_podlogi.append(i)
