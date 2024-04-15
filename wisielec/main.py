@@ -13,3 +13,11 @@ gąska kąska
 cel uświęca środki
 co dwie głowy, to nie jedna""")
 plik_hasla.close()
+
+# Wprowadzanie haseł z pliku do tabeli
+plik_hasla = open("hasla.txt", "r")
+hasla = []
+for linia in plik_hasla:
+    hasla.append(linia.strip())  # Usuwanie znaków nowej lini
+plik_hasla.close()
+print(hasla)
