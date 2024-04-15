@@ -22,16 +22,47 @@ for linia in plik_hasla:
     hasla.append(linia.strip())  # Usuwanie znaków nowej lini
 plik_hasla.close()
 
+znaki_na_podlogi = []
+znaki_w_hasle = []
+
 
 # Losowanie hasła
 def losuj_haslo():
     wylosowane_haslo = hasla[random.randint(0, len(hasla) - 1)]
-    znaki_w_hasle = []
     for i in wylosowane_haslo:
         znaki_w_hasle.append(i)
-    znaki_na_podlogi = []
     for i in znaki_w_hasle:
         if (i.isalpha()):  # Sprawdzanie, czy znak jest literą
             znaki_na_podlogi.append("_")
         else:
             znaki_na_podlogi.append(i)
+    for i in znaki_na_podlogi:
+        print(i, end="")
+
+
+losuj_haslo()
+print()
+
+
+# Trafianie liter przez gracza
+tura = 1
+def trafianieLiter():
+    global tura
+    literka = input(f"Podaj {tura}. literę: ").lower()
+    while (literka.isalpha() == False):
+        literka = input(f"Błąd!\nNie podano litery.\nPodaj {tura}. literę: ").lower()
+    while (len(literka) > 1):
+        literka = input(f"Błąd!\nPodano więcej niż jeden znak.\nPodaj {tura}. literę: ").lower()
+    tura += 1
+    if literka in znaki_w_hasle:
+        odgadnieta_literka_index = znaki_w_hasle.index(literka)
+        znaki_na_podlogi[odgadnieta_literka_index] = literka
+    else:
+        print(f"Literka '{literka}' nie znajduje się w haśle!")
+    print()
+    for i in znaki_na_podlogi:
+        print(i, end="")
+    print()
+    trafianieLiter()
+
+trafianieLiter()
